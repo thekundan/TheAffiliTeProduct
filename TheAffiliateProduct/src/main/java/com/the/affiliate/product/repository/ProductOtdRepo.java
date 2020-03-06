@@ -1,0 +1,15 @@
+package com.the.affiliate.product.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.the.affiliate.product.entity.ProductOTD;
+
+
+
+public interface ProductOtdRepo  extends CrudRepository<ProductOTD, Integer>{
+	
+	List<ProductOTD> findByIsActive(boolean isActive);
+
+}
