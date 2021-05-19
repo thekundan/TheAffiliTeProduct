@@ -1,0 +1,95 @@
+
+<br>
+<div class="alert" [class.visible]="isVisible"> 
+  {{alertmsg}}
+</div>
+<form class="search-form" [formGroup]="addproductform" >
+    <div class="form-row">
+        <div class="form-group col-md-6" style="margin-left: 1%;">
+    <div class="form-row">
+      
+        <div class="form-group col-md-12">
+            <select id="inputState"  [(ngModel)]="selectedAffiliate"  (change)="changecssaffiliatewebsite()" [ngStyle]="{'border-color': (affiliatewebsitech==true) ? 'red' : '#ffffff'}" class="form-control"  formControlName="affiliatewebsite">
+              <option selected>Choose Affiliate Website</option>
+              <option>Amazon</option>
+              <option>Snapdeal</option>
+              <option>Ebay</option>
+              <option>Jabong</option>
+              <option>Shopify</option>
+              <option>TataCliiq</option>
+             </select>
+             
+          </div>
+          <div class="form-group col-md-12">
+            <select id="inputState" [ngStyle]="{'border-color': (categorych==true) ? 'red' : '#ffffff'}" class="form-control" formControlName="category" (change)="onChangecat($event.target.value)">
+              <option selected>Choose Category</option>
+              <option>Baby</option>
+              <option>Beauty</option>
+              <option>Books</option>
+              <option>Men's Clothing & Accessories</option>
+              <option>Women's Clothing & Accessories</option>
+              <option>Computers & Accessories</option>
+              <option>Electronics</option>
+              <option>Jewellery</option>
+              <option>Luggage & Bags</option>
+              <option>Shoes</option>
+              <option>Watches</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-12">
+            <select id="inputState" (change)="changecsssubcategorych()" [ngStyle]="{'border-color': (subcategorych==true) ? 'red' : '#ffffff'}" formControlName="subcategory" class="form-control" required>
+              <option selected>Choose Sub Category</option>
+              <option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-12">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" (keypress)="numberOnly($event)"  [ngStyle]="{'border-color': (offerpricech==true) ? 'red' : '#ffffff'}" formControlName="offerprice" class="form-control" placeholder="Orignal Price in rs/-" id="inputCity" required>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" (keypress)="numberOnly($event)"  [ngStyle]="{'border-color': (origpricech==true) ? 'red' : '#ffffff'}" formControlName="origprice" class="form-control" placeholder="Offer Price in rs/-" id="inputCity" required>
+            </div>
+                
+          </div>
+        </div>
+
+          <div class="form-group col-md-12">
+            <input type="text" (change)="changecssproductnamech()" [ngStyle]="{'border-color': (productnamech==true) ? 'red' : '#ffffff'}" formControlName="productname" class="form-control" placeholder="product Name" id="inputCity" required>
+       
+                </div>
+          </div>
+    </div>
+    <div class="form-group col-md-1" ></div>
+    <div class="form-group col-md-4" >
+       <img class="card-img-top" *ngIf="imageurl" src="{{imageurl}}"
+              alt="" width="500" height="333">
+       <mat-progress-bar  mode="buffer" *ngIf="IsWait" class="mat-progress-bar"color="primary">
+              </mat-progress-bar>   
+    </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6" style="margin-left: 1%;">
+          <input type="text" (change)="changecssproductlink()" [ngStyle]="{'border-color': (productlinkch==true) ? 'red' : '#ffffff'}" formControlName="productlink" class="form-control" placeholder="product url" id="inputCity" required>
+      
+            </div>
+        <div class="form-group col-md-5" >
+            <input type="file" [ngStyle]="{'border-color': (productimagech==true) ? 'red' : '#ffffff'}" (change)="onimagesubmit($event)" formControlName="productimage" class="form-control" placeholder="Add product image" id="customFile" />
+        </div>
+        
+    </div>
+  
+    <div class="form-row">
+      <div class="form-group col-md-12" style="margin-left: 1%;margin-right: 1%;">
+        <textarea class="form-control" formControlName="productdesc" placeholder="Product Description" [ngStyle]="{'border-color': (productdescch==true) ? 'red' : '#ffffff'}" (change)="changecssproductdescch()"></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4" ></div>
+      <button class="btn btn-primary me-2" [disabled]="isdiabled"  (click)="saveproduct()" role="button">{{submitbutton}} <i class="fas fa-download"></i></button>
+      <a class="btn btn-danger me-2" style="margin-left: 1%;" (click)="clearform()" role="button">Clear</a>
+    </div>
+      
+     
+  </form>

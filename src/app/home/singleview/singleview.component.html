@@ -1,0 +1,99 @@
+<div class="row" #scrollDiv>
+    <mat-progress-bar  mode="buffer" *ngIf="IsWait" class="mat-progress-bar"color="primary">
+    </mat-progress-bar>
+
+
+    <div class="col-md-4" >
+        <div style="margin-left: 2%;margin-top: 2%;" >
+          <mdb-card cascade="true" wider="true">
+
+    <div class=" p-2 view view-cascade overlay waves-light" mdbWavesEffect>
+        <img class="card-img-top" src="{{singledata.url}}"
+          alt="" width="500" height="333">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      </mdb-card>
+    </div>
+  </div>
+
+  <div class="col-md-7" style="margin-top: 2%;" >
+      <h2><b>{{singledata.name}}</b></h2>
+      <h3><b>Orignal Price : </b>{{singledata.offerprice}} ₹</h3>
+      <h3><b>Offer Price : </b>{{singledata.origprice}} ₹</h3>
+      <h3><b>Description : </b>{{singledata.longdescription}} </h3>
+
+    
+      <button style="border-radius: 18%;"  (click)="goToLink(singledata.weblink)"
+       type="button" mdbBtn color="primary" mdbWavesEffect>Buy Now</button>
+     
+       
+    </div>
+</div>
+<br><br>
+
+
+
+<div class="row">
+  <mat-progress-bar  mode="buffer" *ngIf="IsWait" class="mat-progress-bar"color="primary">
+  </mat-progress-bar>
+  
+      <div class="col-md-3"  infinite-scroll
+      [infiniteScrollDistance]="scrollDistance"
+      [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScrollDown()"
+      (scrolledUp)="onUp()" *ngFor = "let templ of productdatadtata">
+      <div style="margin-left: 2%;margin-top: 2%;" >
+        <mdb-card cascade="true" wider="true" (click)="viewsingleproduct(templ.id)">
+    
+          <!--Card image-->
+       
+            
+          <div class=" p-2 view view-cascade overlay waves-light" mdbWavesEffect>
+            <img class="card-img-top" src="{{templ.url}}"
+              alt="" width="500" height="333">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--/.Card image-->
+    
+          <!--Card content-->
+          <mdb-card-body cascade="true" class="text-center">
+          <mdb-card-title>
+              <h4><strong><a >{{templ.name | limit : 30}} {{templ.name.length > 30 ? '...' : ''}} </a></strong></h4>
+            </mdb-card-title>
+    
+            <!--Description-->
+            <mdb-card-text>
+                <p><b>{{templ.offerprice}} ₹ </b> <b class="c"> {{templ.origprice}} ₹</b></p>
+            </mdb-card-text>
+    
+        
+            <mdb-card-footer class="p-0">
+                
+                <span class="float-left">
+                  <a  (click)="goToLink(templ.weblink)" mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+                        <mat-icon style="  vertical-align: sub;"> shop</mat-icon>BUY NOW</a>     
+                   </span>
+                   
+                  <span class="float-right" >
+                    <button (click)="viewsingleproduct(templ.id)" mat-icon-button  style="margin-left: -122%;" color="primary" aria-label="Example icon button with a menu icon">
+                        <mat-icon style="  vertical-align: sub;" > view_module</mat-icon>VIEW </button>    
+                          </span>
+              </mdb-card-footer>
+    
+          </mdb-card-body>
+    
+        </mdb-card>
+      </div>
+  </div>
+  
+    </div>
+  
+    <div class="row" *ngIf="productdatadtata.length==0">
+      <h2 style="margin-left: 3%;margin-top: 3%;">Nothing to display</h2>
+   </div>

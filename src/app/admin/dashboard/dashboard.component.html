@@ -1,0 +1,36 @@
+<div class="row">
+<div class="card" style="background-color: cadetblue;">
+    
+    <div class="card-body">
+      <h3 class="card-title">YOUR PRODUCT'S</h3>
+      <p class="card-text">{{productscount}}</p>
+      <a routerLink="/admin/product/search" class="btn btn-primary">Click here to  know more</a>
+    </div>
+  </div>
+  <div class="card"  style="background-color: #07bcc1;">
+   
+    <div class="card-body">
+        <h3 class="card-title">ACTIVE PRODUCT</h3>
+        <p class="card-text">{{activecount}}</p>
+        <a routerLink="/admin/product/Active:products" class="btn btn-primary">Click here to  know more</a>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="card" style="background-color: darkgrey;">
+  
+    <div class="card-body">
+        <h3 class="card-title">SELECTED FOR PRODUCT OF THE DAY</h3>
+        <p class="card-text">{{productotdcount}}</p>
+        <a  routerLink="/admin/product/ProductOfTheDay" class="btn btn-primary">Click here to know more</a>
+      </div>
+  </div>
+  <div class="card"  style="background-color: #d85353;">
+    
+    <div class="card-body">
+        <h3 class="card-title">DEACTIVE PRODUCT</h3>
+        <p class="card-text">{{deactivecount}}</p>
+        <a  routerLink="/admin/product/DeActive:products" class="btn btn-primary">Click here to  know more</a>
+      </div>
+  </div>
+</div>

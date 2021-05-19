@@ -1,0 +1,64 @@
+p {
+  font-family: Lato;
+}
+
+.navbar {
+  /* position: relative; */
+  display: flow-root;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  
+  /* justify-content: space-between; */
+  padding: 0rem 0rem;
+}
+
+
+
+.input-group-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: inline-table;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .375rem .75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+
+.footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40!important;
+  color: white;
+  text-align: center;
+}
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+/* Other Classes for Page Styling */
+
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}

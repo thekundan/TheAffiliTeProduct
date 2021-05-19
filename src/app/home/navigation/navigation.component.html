@@ -1,0 +1,257 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg" style=" background: #3f51b5;">
+  <!--Grid row-->
+  <div class="row">
+
+    <div class="col-md-5">
+      <a class="navbar-brand" >
+        <img src="../assets/logo.png" height="40" class="d-inline-block align-top" alt="">
+     </a>
+    </div>  
+    <div class="input-group col-md-4" style="    margin: auto;">
+      <div class="input-group rounded">
+        <input type="search" #searchbox class="form-control rounded" value={{searchinput}} placeholder="Search" aria-label="Search"
+          aria-describedby="search-addon" />
+        <span (click)="searchproduct(searchbox.value)" class="input-group-text" >
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="input-group col-md-3">
+      <button routerLink="/admin/login" type="button" mdbBtn style="display: flex;" color="indigo" mdbWavesEffect> <span class="material-icons">
+        admin_panel_settings
+        </span>Add Your Affiliate Product</button>
+     
+      </div>
+  </div>
+
+</nav>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <div class="container-fluid px-0">
+    <div class="row w-100">
+      <div class="col-2">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" (click)="isShown = !isShown" >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="col-10">
+        <div class="collapse justify-content-end navbar-collapse" [ngClass]="{ 'show': isShown }" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item ">
+              <a class="nav-link" href="#"  > <b>Home</b> </a>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Women')"  >  <b>Women</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Tops, Tees & Blouses')">Tops, Tees & Blouses</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Fashion Hoodies & Sweatshirts')">Fashion Hoodies & Sweatshirts</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Jeans')">Jeans</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Pants & Capris')">Pants & Capris</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Shorts')">Shorts</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Swimsuits & Cover Ups')">Swimsuits & Cover Ups</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Lingerie, Sleep & Lounge')">Lingerie, Sleep & Lounge</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Jumpsuits, Rompers & Overalls')">Jumpsuits, Rompers & Overalls</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Coats, Jackets & Vests')">Coats, Jackets & Vests</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Suiting & Blazers')">Suiting & Blazers</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Socks & Hosiery')">Socks & Hosiery</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Clothing Sets')">Clothing Sets</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Dresses')">Dresses</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Skirts & Skorts')">Skirts & Skorts</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Sweaters')">Sweaters</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Leggings')">Leggings</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect  (click)="findbycategory('Underwear')">Underwear</a>     
+              </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Men')"  >   <b>Men</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Clothing Sets')">Clothing Sets</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Shirts')"> Shirts</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Fashion Hoodies & Sweatshirts')">Fashion Hoodies & Sweatshirts</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Sweaters')"> Sweaters</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Jackets & Coats')">Jackets & Coats</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Jeans')">Jeans</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Pants')">Pants</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Shorts')">Shorts</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Swim')">Swim</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Suits & Sport Coats')">Suits & Sport Coats</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Underwear')"> Underwear</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Socks')">Socks</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Sleep & Lounge')">Sleep & Lounge</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('T-Shirts & Tanks')">T-Shirts & Tanks</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Sports')">Sports</a>
+            </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Electronics')" > <b>Electronics</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Cameras & Photography')">Cameras & Photography</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Car & Vehicle Electronics')">Car & Vehicle Electronics</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('GPS & Accessories')">GPS & Accessories</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Headphones')">Headphones</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Home Audio')">Home Audio</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Home Theater, TV & Video')">Home Theater, TV & Video</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Portable Media Players')">Portable Media Players</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Telephones & Accessories')">Telephones & Accessories</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Wearable Technology')">Wearable Technology</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Computers & Accessories')"  > <b> Computers & Accessories</b></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Accessories & Peripherals')">Accessories &              Peripherals</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Components')">Components</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Desktops')">Desktops</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('External Devices & Data Storage')">External           Devices & Data Storage</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Laptops')">Laptops</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Monitors')">Monitors</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Networking Devices')">Networking Devices</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Printers, Inks & Accessories')">Printers, Inks &        Accessories</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Scanners')">Scanners</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Tablets')">Tablets</a>	
+                 
+             </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffectk (click)="findbycategory('Shoes')"  > <b>Shoes</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Athletic Shoes Accessories')">Athletic Shoes           Accessories</a>
+              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Boys')">Boys</a>
+              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Girls')">Girls</a>
+              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('MeMenn')">Men</a>
+              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('WomWomenen')">Women</a>
+                
+            </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Luggage & Bags')"  > <b> Luggage & Bags</b></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Bags & Backpacks')">Bags & Backpacks</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Luggage')">Luggage</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Wallets, Card Cases & Money 			                  Organizers')">Wallets, Card Cases & Money Organizers</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Travel Accessories')">Travel Accessories</a>
+               <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Handbags & Clutches')">Handbags & Clutches</a>
+                 
+                 
+             </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Watches')"  > <b>Watches</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Wrist Watches')">Wrist Watches</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Watch Bands')">Watch Bands</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Pocket Watches')">Pocket Watches</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Smart Watches')">Smart Watches</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Beauty')"  > <b>Beauty</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Luxury Beauty')">Luxury Beauty</a>
+            <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Make-up & Nails')">Make-up & Nails</a>
+            <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Skin Care')">Skin Care</a>
+            <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Hair Care')">Hair Care</a>
+            <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Bath Body')">Bath Body</a>
+            <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Fragrance')">Fragrance</a>
+            <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Tools Accessories')">Tools Accessories</a>
+            <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Mens Grooming')">Mens Grooming</a>
+        </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Baby')"  > <b>Baby</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Baby Care')">Baby Care</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Baby Clothing')">Baby Clothing</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Baby Safety')">Baby Safety</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Baby Shoes')">Baby Shoes</a>
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Car Seats  Accessories')">Car Seats  Accessories</a>
+                 <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Diapering & Nappy Changing')">Diapering & Nappy Changing</a>
+                 <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Feeding')">Feeding</a>
+                 <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Gift Packs')">Gift Packs</a>
+                 <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Maternity')">Maternity</a>
+                 <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Pacifiers & Teethers')">Pacifiers & Teethers</a>
+                 <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('PottyTraining  & StepStools')">PottyTraining  & StepStools</a>
+                 <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Strollers, Buggies & Prams')">Strollers, Buggies & Prams</a>
+                      
+                      
+               </div>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Books')"  > <b>Book's</b>  </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Arts, Film & Photography')">Arts, Film & Photography</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Biographies, Diaries & True Accounts')">Biographies, Diaries & True Accounts</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Business & Economics')">Business & Economics</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Childrens & Young Adult')">Childrens & Young Adult</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Computing, Internet & Digital Media')">Computing, Internet & Digital Media</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Crafts, Home & Lifestyle')">Crafts, Home & Lifestyle</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Health, Family & Personal Development')">Health, Family & Personal Development</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Humour')">Humour</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Language, Linguistics & Writing')">Language, Linguistics & Writing</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Literature & Fiction')">Literature & Fiction</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Politics')">Politics</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Reference')">Reference</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Religion')">Religion</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Sciences, Technology & Medicine')">Sciences, Technology & Medicine</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Society & Social Sciences')">Society & Social Sciences</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Sports')">Sports</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Travel')">Travel</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Action & Adventure')">Action & Adventure</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Comics & Mangas')">Comics & Mangas</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Crime, Thriller & Mystery')">Crime, Thriller & Mystery</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Fantasy, Horror & Science Fiction')">Fantasy, Horror & Science Fiction</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Historical Fiction')">Historical Fiction</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Romance')">Romance</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Maps & Atlases')">Maps & Atlases</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Exam Preparation')">Exam Preparation</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('History')">History</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Law')">Law</a>
+                  <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Textbooks & Study Guides')">Textbooks & Study Guides</a>
+                      </div>
+            </li>
+            <li class="nav-item dropdown" dropdown></li>  <li class="nav-item dropdown" dropdown></li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="findbycategory('Jewellery')"  > <b>Jewellery</b> </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Earrings')">Earrings</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Chains & Necklaces')">Chains & Necklaces</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Bangles & Bracelets')">Bangles & Bracelets</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Rings')">Rings</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Pendants')">Pendants</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Mangalsutras & Tanmaniyas')">Mangalsutras & Tanmaniyas</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Nose Rings & Pins')">Nose Rings & Pins</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Hair Accessories')">Hair Accessories</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Toe Rings')">Toe Rings</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Body Jewellery')">Body Jewellery</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Brooches & Pins')">Brooches & Pins</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Beads & Charms')">Beads & Charms</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Coins & Bars')">Coins & Bars</a>
+                              <a  class="dropdown-item waves-light" mdbWavesEffect (click)="findbycategory('Loose Gemstones & Diamonds')">Loose Gemstones & Diamonds</a>
+                      </div>
+            </li>
+          
+           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<br><br><br>
+<div class="footer">
+ 
+  <p> <button style="margin-right: 4%;" routerLink="/about" mat-button>About Us</button>  Mail Us : <a  href = "mailto: theaffiliateproduct@gmail.com">theaffiliateproduct@gmail.com</a> <a style="margin-left: 4%;"></a> follow us on 
+    <a target="_blank" href="https://www.instagram.com/theaffliateproduct/" style="margin-left: 1%;" ><i class="fab fa-instagram left"></i></a>
+    <a target="_blank" href="https://www.facebook.com/Theaffiliateproduct-101413821425177/" style="margin-left: 1%;"><i class="fab fa-facebook-f left"></i></a>
+    <a target="_blank" href="https://twitter.com/AffliateThe" style="margin-left: 1%;"><i class="fab fa-twitter left"></i></a>
+    <a target="_blank" href="https://www.youtube.com/channel/UC-Dn3cqn1SNF4hQLeBjJ8eg?guided_help_flow=3" style="margin-left: 1%;"><i class="fab fa-youtube left"></i></a></p>
+  
+</div>

@@ -1,0 +1,101 @@
+<div class="row" #scrollDiv>
+    <mat-progress-bar  mode="buffer" *ngIf="IsWait" class="mat-progress-bar"color="primary">
+    </mat-progress-bar>
+
+
+    <div class="col-md-4" >
+        <div style="margin-left: 2%;margin-top: 2%;" >
+          <mdb-card cascade="true" wider="true">
+
+    <div class=" p-2 view view-cascade overlay waves-light" mdbWavesEffect>
+        <img class="card-img-top" src="{{singledata.url}}"
+          alt="" width="500" height="333">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      </mdb-card>
+    </div>
+  </div>
+
+  <div class="col-md-7" style="margin-top: 2%;" >
+      <h2><b>{{singledata.name}}</b></h2>
+      <h3><b>Orignal Price : </b>{{singledata.offerprice}} ₹</h3>
+      <h3><b>Offer Price : </b>{{singledata.origprice}} ₹</h3>
+      <h3><b>Description : </b>{{singledata.longdescription}} </h3>
+      <h3 *ngIf="singledata.isactive"><b> Status :</b> Active</h3>
+      <h3 *ngIf="!singledata.isactive"><b> Status : </b>Deactive</h3>
+
+      <h3>Click <a href="{{singledata.weblink}}" target="_blank">here</a> to visit product url</h3>
+      <button style="border-radius: 18%;" (click)="deactivateproduct(singledata.id)" type="button" *ngIf="!singledata.isactive" mdbBtn color="primary" mdbWavesEffect>Activate</button>
+      <button style="border-radius: 18%;" (click)="activateproduct(singledata.id)"  type="button" *ngIf="singledata.isactive" mdbBtn color="danger" mdbWavesEffect>Deactivate</button>
+      
+      <button style="border-radius: 18%;" routerLink="/admin/addproduct/{{singledata.id}}"
+       type="button" mdbBtn color="primary" mdbWavesEffect>Edit</button>
+     
+       
+    </div>
+</div>
+<br><br>
+<div class="row">
+    <mat-progress-bar  mode="buffer" *ngIf="IsWait" class="mat-progress-bar"color="primary">
+    </mat-progress-bar>
+    
+        <div class="col-md-3" *ngFor = "let templ of productdatadtata">
+        <div style="margin-left: 2%;margin-top: 2%;" >
+          <mdb-card cascade="true" wider="true" (click)="viewsingleproduct(templ.id)">
+      
+          <!--Card image-->
+         <div class=" p-2 view view-cascade overlay waves-light" mdbWavesEffect>
+              <img class="card-img-top" src="{{templ.url}}"
+                alt="" width="500" height="333">
+              <a>
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--/.Card image-->
+      
+            <!--Card content-->
+            <mdb-card-body cascade="true" class="text-center">
+            <mdb-card-title>
+              <h4><strong><a >{{templ.name | limit : 22}} {{templ.name.length > 22 ? '...' : ''}} </a></strong></h4>
+      
+              </mdb-card-title>
+      
+              <!--Description-->
+              <mdb-card-text>
+                  <p><b>Affiliate Website : {{templ.affiliatewebsite}}</b></p>
+                  <p><b>Offer Price :{{templ.offerprice}} ₹</b></p>
+                  <p><b> Orignal Price :{{templ.origprice}} ₹</b></p>
+                  <p *ngIf="singledata.isactive"><b> Status : Active</b></p>
+                  <p *ngIf="!singledata.isactive"><b> Status : Deactive</b></p>
+              </mdb-card-text>
+      
+              <hr>
+      
+              <!--Card footer-->
+              <mdb-card-footer class="p-0">
+                
+                <span class="float-left">
+                  <button routerLink="/admin/addproduct/{{templ.id}}" mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
+                        <mat-icon>edit</mat-icon>Edit </button>     
+                   </span>
+                   
+                  <span class="float-right" >
+                    <button (click)="viewsingleproduct(templ.id)" mat-icon-button  style="margin-left: -122%;" color="primary" aria-label="Example icon button with a menu icon">
+                        <mat-icon>view_module</mat-icon>View </button>    
+                          </span>
+              </mdb-card-footer>
+      
+            </mdb-card-body>
+            <!--/.Card content-->
+      
+          </mdb-card>
+          <!--/.Card-->
+        </div>
+    </div>
+    
+      </div>
+
+    

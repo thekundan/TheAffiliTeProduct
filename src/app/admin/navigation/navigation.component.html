@@ -1,0 +1,53 @@
+<mat-toolbar color="primary"  class="example-toolbar ">
+	
+    <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+    
+            <a class="navbar-brand" href="#">
+                <img src="../assets/logo.png" height="50" class="d-inline-block align-top" alt="">
+            </a>
+    
+    <span class="example-spacer"></span>
+
+ 
+    <button mat-button [matMenuTriggerFor]="menu" style="padding: 1.75rem !important; border-radius: 61%;" [style.background-image]="'url('+profileurl+')'"></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Wel Come <b>{{username}}</b></button>
+  <button style="color: crimson;" (click)="logout()" mat-menu-item> <b> Logout </b></button>
+</mat-menu>
+
+      
+    
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+    <mat-nav-list >
+        <mat-list-item routerLink="/admin/dashboard" (click)="showSubmenu = !showSubmenu" class="parent">
+            <span  class="full-width" *ngIf="isExpanded || isShowing">Dashboard</span>
+            <mat-icon  mat-list-icon>dashboard</mat-icon>
+      </mat-list-item>
+
+    <mat-list-item routerLink="/admin/product/search" (click)="showSubmenu = !showSubmenu" class="parent">
+        <span  class="full-width" *ngIf="isExpanded || isShowing">Your Product's</span>
+        <mat-icon   mat-list-icon>shopping_basket</mat-icon>
+     </mat-list-item>
+
+     <mat-list-item routerLink="/admin/addproduct/0" (click)="showSubmenu = !showSubmenu" class="parent">
+        <span  class="full-width" *ngIf="isExpanded || isShowing">Add Your Product's</span>
+        <mat-icon  mat-list-icon>add_box</mat-icon>
+     </mat-list-item>
+       
+    </mat-nav-list>
+<mat-nav-list>
+   
+</mat-nav-list>
+
+</mat-sidenav>
+<main class="content">
+    <router-outlet></router-outlet>
+  </main>
+  
+</mat-sidenav-container>
+
+<footer>
+  <p></p>
+</footer>
